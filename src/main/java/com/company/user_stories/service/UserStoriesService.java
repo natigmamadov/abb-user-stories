@@ -1,8 +1,8 @@
 package com.company.user_stories.service;
 
-import com.company.user_stories.error.WrongCredentials;
-import com.company.user_stories.model.entity.Task;
-import com.company.user_stories.model.entity.User;
+import com.company.user_stories.exception.WrongCredentials;
+import com.company.user_stories.dao.entity.Task;
+import com.company.user_stories.dao.entity.User;
 import com.company.user_stories.model.request.CreateTaskRequest;
 import com.company.user_stories.model.request.CreateUserRequest;
 import com.company.user_stories.model.request.LoginRequest;

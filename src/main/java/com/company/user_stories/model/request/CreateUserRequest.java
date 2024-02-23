@@ -1,14 +1,11 @@
 package com.company.user_stories.model.request;
 
-import com.company.user_stories.model.entity.Organization;
-import jakarta.persistence.*;
-import jakarta.validation.constraints.Pattern;
+
 import lombok.*;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 public class CreateUserRequest {
 
     @NonNull
@@ -17,7 +14,7 @@ public class CreateUserRequest {
     private String surname;
     @NonNull
     private String email;
-    //It'll take from token
+    @NonNull
     private Long organizationId;
 
 

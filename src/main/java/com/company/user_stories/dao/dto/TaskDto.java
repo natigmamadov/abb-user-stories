@@ -1,27 +1,23 @@
-package com.company.user_stories.model.request;
+package com.company.user_stories.dao.dto;
 
 import com.company.user_stories.model.enums.TaskStatus;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Data
 @Builder
-public class CreateTaskRequest {
+public class TaskDto {
 
-
-    private Long userId;
-
-    @NonNull
     private String title;
 
-    @NonNull
     private String description;
 
-    @NonNull
     private String deadline;
 
-    @NonNull
     private TaskStatus status;
 
 }

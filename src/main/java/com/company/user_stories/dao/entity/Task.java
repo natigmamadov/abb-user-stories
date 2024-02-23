@@ -1,37 +1,36 @@
-package com.company.user_stories.model.entity;
+package com.company.user_stories.dao.entity;
 
+import com.company.user_stories.model.enums.TaskStatus;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.ArrayList;
 import java.util.List;
+
+import static jakarta.persistence.EnumType.STRING;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@EqualsAndHashCode(of = "id")
 @Table(name = "tasks")
 public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id",nullable = false)
     private Long id;
-    @Column(name = "title")
-    @NonNull
+
     private String title;
-    @Column(name = "description")
-    @NonNull
+
     private String description;
-    @Column(name = "deadline")
-    @NonNull
+
     private String deadline;
-    @Column(name = "status")
-    @NonNull
-    private String status;
 
-    private Long userId;
+    @Enumerated(STRING)
+    private TaskStatus status;
 
-    @ManyToMany(mappedBy = "tasks")
+    @ManyToMany(mappedBy = "tasks",cascade = CascadeType.ALL)
+//    @JoinColumn(name = "user_id")
+    @ToString.Exclude
     private List<User> users;
 }

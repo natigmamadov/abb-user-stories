@@ -1,4 +1,4 @@
-package com.company.user_stories.model.entity;
+package com.company.user_stories.dao.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Pattern;
@@ -11,24 +11,25 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@EqualsAndHashCode(of = "id")
 @Table(name = "organizations")
 public class Organization {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id",nullable = false)
     private Long id;
-    @Column(name = "organization_name")
+
     private String organizationName;
-    @Column(name = "phone_number")
+
     private String phoneNumber;
-    @Column(name = "address")
+
     private String address;
     private String userName;
     @Pattern(regexp = "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\\\.[A-Z]{2,6}$")
     private String email;
     @Pattern(regexp = "^[a-zA-Z0-9]{6,}$\n")
     private String password;
-    @OneToMany(mappedBy = "organization", cascade = CascadeType.ALL)
+
+    @OneToMany(mappedBy = "organization")
     private List<User> users;
 
 

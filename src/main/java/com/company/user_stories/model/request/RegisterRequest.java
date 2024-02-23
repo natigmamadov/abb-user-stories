@@ -1,11 +1,6 @@
 package com.company.user_stories.model.request;
 
-import com.company.user_stories.model.entity.User;
-import jakarta.persistence.*;
-import jakarta.validation.constraints.Pattern;
 import lombok.*;
-
-import java.util.List;
 
 
 @Data
