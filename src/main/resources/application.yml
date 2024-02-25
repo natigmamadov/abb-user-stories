@@ -1,15 +1,16 @@
-server:
-  port: 8080
+#server:
+#  port: 8080
 
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: "jdbc:postgresql://localhost:5432/abb-stories"
+    url: jdbc:postgresql://localhost:5432/abb_stories
     username: postgres
-    password: postgres
+    password: admin
 
   jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
     open-in-view: false
     hibernate:
-      ddl-auto: update
+      ddl-auto: validate
     show-sql: true
