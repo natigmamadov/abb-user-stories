@@ -15,9 +15,10 @@ public class ErrorHandler {
 
     @ExceptionHandler(Exception.class)
     @ResponseStatus(INTERNAL_SERVER_ERROR)
-    public ExceptionResponse handle(Exception ex){
+    public ExceptionResponse handle(Exception ex) {
         log.error("Exception: ", ex);
-        return new ExceptionResponse(UNEXPECTED_EXCEPTION_CODE,UNEXPECTED_EXCEPTION_MESSAGE);
+        return new ExceptionResponse(UNEXPECTED_EXCEPTION_CODE,
+                UNEXPECTED_EXCEPTION_MESSAGE);
     }
 
     @ExceptionHandler(NotFoundException.class)

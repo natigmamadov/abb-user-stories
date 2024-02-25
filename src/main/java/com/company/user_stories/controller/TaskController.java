@@ -1,15 +1,10 @@
 package com.company.user_stories.controller;
 
 import com.company.user_stories.dao.dto.TaskDto;
-import com.company.user_stories.dao.entity.Task;
 import com.company.user_stories.model.request.CreateTaskRequest;
-import com.company.user_stories.model.response.OperationResponse;
 import com.company.user_stories.service.TaskService;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.service.annotation.DeleteExchange;
 
 import java.util.List;
 
