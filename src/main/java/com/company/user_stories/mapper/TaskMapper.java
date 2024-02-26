@@ -4,13 +4,16 @@ import com.company.user_stories.dao.dto.TaskDto;
 import com.company.user_stories.dao.entity.Task;
 import com.company.user_stories.model.request.CreateTaskRequest;
 
+import java.time.LocalDateTime;
+
+
 public enum TaskMapper {
     TASK_MAPPER;
 
     public Task mapCreateTaskRequestToTaskEntity(CreateTaskRequest request) {
         return Task.builder()
                 .title(request.getTitle())
-                .deadline(request.getDeadline())
+                .deadline(LocalDateTime.now().plusDays(7))
                 .status(request.getStatus())
                 .description(request.getDescription())
                 .build();

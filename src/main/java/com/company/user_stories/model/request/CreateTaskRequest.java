@@ -3,6 +3,7 @@ package com.company.user_stories.model.request;
 import com.company.user_stories.model.enums.TaskStatus;
 import lombok.*;
 
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -18,8 +19,6 @@ public class CreateTaskRequest {
     @NonNull
     private String description;
 
-    @NonNull
-    private String deadline;
 
     @NonNull
     private TaskStatus status;

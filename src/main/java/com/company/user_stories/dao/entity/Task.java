@@ -4,8 +4,11 @@ import com.company.user_stories.model.enums.TaskStatus;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDateTime;
+
 import java.util.List;
 
+import static jakarta.persistence.CascadeType.ALL;
 import static jakarta.persistence.EnumType.STRING;
 
 @Entity
@@ -24,13 +27,17 @@ public class Task {
 
     private String description;
 
-    private String deadline;
+    private LocalDateTime deadline;
 
     @Enumerated(STRING)
     private TaskStatus status;
 
-    @ManyToMany(mappedBy = "tasks",cascade = CascadeType.ALL)
-//    @JoinColumn(name = "user_id")
+    @ManyToMany(cascade = { ALL })
+    @JoinTable(
+            name = "user_task",
+            joinColumns = { @JoinColumn(name = "task_id") },
+            inverseJoinColumns = { @JoinColumn(name = "user_id") }
+    )
     @ToString.Exclude
     private List<User> users;
 }

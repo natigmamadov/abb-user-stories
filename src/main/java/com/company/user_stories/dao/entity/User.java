@@ -6,7 +6,7 @@ import lombok.*;
 
 import java.util.List;
 
-import static jakarta.persistence.CascadeType.ALL;
+
 import static jakarta.persistence.FetchType.LAZY;
 
 
@@ -32,11 +32,7 @@ public class User {
     @ToString.Exclude
     private Organization organization;
 
-    @ManyToMany
-    @JoinTable(
-            name = "user_task",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "task_id"))
+    @ManyToMany(mappedBy = "users")
     @ToString.Exclude
     private List<Task> tasks;
 }
